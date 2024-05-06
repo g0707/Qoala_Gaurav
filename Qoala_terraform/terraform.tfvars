@@ -1,1 +1,2 @@
-region = "us-east-2"
+// region varaibale havin
+region = "us-east-1"

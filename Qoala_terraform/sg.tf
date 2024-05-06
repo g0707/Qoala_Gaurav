@@ -1,3 +1,5 @@
+// Security Group Creation for Private Subnet with port 22,80 open
+
 resource "aws_security_group" "private_instance_sg" {
  name = "private_instance_sg"
  description = "This firewall allows SSH, HTTP"

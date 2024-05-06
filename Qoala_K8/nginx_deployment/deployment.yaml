@@ -12,8 +12,8 @@ spec:
       labels:
         app: nginx
     spec:
-      containers:
-      - name: nginx
-        image: nginx:latest
+      containers:             # Container configuration inside each pod
+      - name: nginx        
+        image: nginx:latest   # use nginx:latest for version1 deployment,nginx:1.21.3 image for version2 deployment
         ports:
         - containerPort: 80

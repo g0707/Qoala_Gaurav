@@ -1,0 +1,8 @@
+// This file is utilized by Auto Scaling Policy in script Automate_EC2_On_CPU_Utilization.sh
+
+{
+  "PredefinedMetricSpecification": {
+    "PredefinedMetricType": "ASGAverageCPUUtilization"
+  },
+  "TargetValue": 60
+}

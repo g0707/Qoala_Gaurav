@@ -1,4 +1,4 @@
-resource "aws_lb" "my_alb" {
+resource "aws_lb" "my_alb" {       // Application Load balancer creation in public subnets
  name               = "public-alb"
  internal           = false
  load_balancer_type = "application"
@@ -11,7 +11,7 @@ resource "aws_lb" "my_alb" {
 }
 
 
-resource "aws_lb_listener" "front_end" {
+resource "aws_lb_listener" "front_end" {       // Listener Configuration of load balancer listening on port 80 for HTTP
   load_balancer_arn = aws_lb.my_alb.arn
   port              = "80"
   protocol          = "HTTP"
@@ -23,7 +23,7 @@ resource "aws_lb_listener" "front_end" {
 
 
 
-resource "aws_lb_target_group" "my_tg_a" { // Target Group A
+resource "aws_lb_target_group" "my_tg_a" { // Target Group Creation for Load balancer
  name     = "target-group-a"
  port     = 80
  protocol = "HTTP"
@@ -31,7 +31,7 @@ resource "aws_lb_target_group" "my_tg_a" { // Target Group A
 }
 
 
-resource "aws_lb_target_group_attachment" "tg_attachment_a" {
+resource "aws_lb_target_group_attachment" "tg_attachment_a" {    // Attaching private instance created in private subnet to be associated with target group
  target_group_arn = aws_lb_target_group.my_tg_a.arn
  target_id        = aws_instance.private_instance.id
  port             = 80
